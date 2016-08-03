@@ -1,0 +1,7 @@
+/node_modules/*
+/typings/*
+/docs/*
+/.vscode/*
+jsconfig.json
+tsd.json
+npm-debug.log
