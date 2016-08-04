@@ -9,7 +9,7 @@ function Greet  (inputArg)
     // if Greet gets extended, this method would not be overridden
     this.privateGreet = function ()
     {
-        return "Not shared variable has the value of ["+this.notSharedName+"] ,shared variable has the value of ["+sharedName+"]";
+        return `notSharedName = ${this.notSharedName} ,sharedName = ${sharedName}`;
     }
 
     
@@ -17,7 +17,7 @@ function Greet  (inputArg)
 
 // this funciton will be open for extension
 Greet.prototype.greet  = function(){
-     return "notSharedName has the value of ["+this.notSharedName+"] ,sharedName has the value of ["+sharedName+"]";
+     return `notSharedName = ${this.notSharedName} ,sharedName = ${sharedName}`;
 }
 //variable which is not shared accross instances
 Greet.prototype.notSharedName=this.notSharedName;

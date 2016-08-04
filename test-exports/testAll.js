@@ -1,4 +1,7 @@
 
+var util = require('util');
+
+
 // Test Namespace Export
 // var namespace_export = require('../namespace-export');
 // console.log(namespace_export)
@@ -22,14 +25,14 @@
 
 // Test constructor export
 var Greet = require('../constructor-export');
-var greetObj1 = new Greet('Name');
-console.log(greetObj1);
-console.log(greetObj1.privateGreet());
-console.log(greetObj1.greet());
+var greetObj1 = new Greet(`Name`);
+console.log(`greetObj1=${util.inspect(greetObj1)}`);
+console.log(`invoking privateGreet [${greetObj1.privateGreet()}]`);
+console.log(`Greet ${greetObj1.greet()}`);
 
 var greetObj2 = new Greet('ChangedName');
-console.log(greetObj2);
-console.log(greetObj2.privateGreet());
+console.log(`greetObj2=${util.inspect(greetObj2)}`);
+console.log(`invoking privateGreet [${greetObj2.privateGreet()}]`);
 console.log(greetObj2.greet());
 
 console.log(greetObj1);
