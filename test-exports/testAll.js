@@ -1,5 +1,13 @@
 
 var util = require('util');
+console.log(util.__dirname);
+
+var a={B:{C:{D:1}},
+       A:'A' };
+var b= Object.create(a);
+var c = Object.assign(a);
+var d = Object.assign(a);
+c.B.C.D=2;
 
 
 // Test Namespace Export
@@ -26,13 +34,17 @@ var util = require('util');
 // Test constructor export
 var Greet = require('../constructor-export');
 var greetObj1 = new Greet(`Name`);
-console.log(`greetObj1=${util.inspect(greetObj1)}`);
-console.log(`invoking privateGreet [${greetObj1.privateGreet()}]`);
-console.log(`Greet ${greetObj1.greet()}`);
+util.__proto__.cinspect=function(obj)
+{
+    return this.inspect(obj,false,null,true);
+}
+console.log(`greetObj1=${util.cinspect((greetObj1))}`);
+console.log(`invoking privateGreet [${util.cinspect(greetObj1.privateGreet())}]`);
+console.log(`Greet ${util.cinspect(greetObj1.greet())}`);
 
 var greetObj2 = new Greet('ChangedName');
-console.log(`greetObj2=${util.inspect(greetObj2)}`);
-console.log(`invoking privateGreet [${greetObj2.privateGreet()}]`);
+console.log(`greetObj2=${util.cinspect(greetObj2)}`);
+console.log(`invoking privateGreet [${util.cinspect(greetObj2.privateGreet())}]`);
 console.log(greetObj2.greet());
 
 console.log(greetObj1);
