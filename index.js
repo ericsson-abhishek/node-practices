@@ -1,4 +1,23 @@
 // local variable
+var User=
+{
+    name : "",
+    showName : function(){
+        console.log(this);
+        console.log('User name is : '+this.name);
+        console.log('Calling other function');
+    }
+};
+
+User.name = "Avishek";
+User.showName();//js scope
+
+
+function otherFunction(){
+    console.log(this);
+};
+otherFunction();//global scope call
+
 var first_module=require('./first-module')
 console.log(first_module)
 first_module.firstFunction();
