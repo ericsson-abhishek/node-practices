@@ -23,4 +23,17 @@ module.exports.testFunction = testFunction;
 console.log('========testFunction will be called in module scope===========');
 this.testFunction(); //calling this way function is called in module scope.
 
+/*
+ Add relevant commnets here
+*/
 
+function User(){
+ var name= "";
+ this.showName = function showName(){
+  console.log('My name is : '+this.name);
+ }
+};
+
+var abhi = new User();
+abhi.name = 'abhi';
+abhi.showName();
